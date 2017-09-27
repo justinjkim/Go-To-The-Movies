@@ -9,5 +9,11 @@
 <a th:href="'/now-playing'">Now Playing</a>
 <h1>This is our most popular movie right now.</h1>
 
+<div th:each="movie : ${movies}">
+    <img width="150px" src="http://www.google.com" th:src="'http://image.tmdb.org/t/p/original' + ${movie.posterPath}"/>
+    <span th:text="${movie.title}"></span>
+</div>
+
+
 </body>
 </html>

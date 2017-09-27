@@ -1,6 +1,7 @@
 package com.example.gotothemovies;
 
 import com.example.gotothemovies.entity.Movie;
+import com.example.gotothemovies.service.TMDBFilteredService;
 import com.example.gotothemovies.service.TMDBService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,9 +15,17 @@ public class BasicController {
 
     private final TMDBService tmdbService;
 
+    private final TMDBFilteredService tmdbFilteredService;
+
+//    @Autowired
+//    public BasicController(TMDBFilteredService tmdbFilteredService){
+//        this.tmdbFilteredService = tmdbFilteredService;
+//    }
+
     @Autowired
-    public BasicController(TMDBService tmdbService) {
+    public BasicController(TMDBService tmdbService, TMDBFilteredService tmdbFilteredService) {
         this.tmdbService = tmdbService;
+        this.tmdbFilteredService = tmdbFilteredService;
     }
 
     @GetMapping("/")
@@ -33,7 +42,9 @@ public class BasicController {
     }
 
     @GetMapping("/medium-popular-long-name")
-    public String getLongName(){
+    public String getLongName(Model model){
+        List<Movie> movies = tmdbFilteredService.getMovies();
+        model.addAttribute("movies", movies);
         return "medium-popular-long-name";
     }
 }
