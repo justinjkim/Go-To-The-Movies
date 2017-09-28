@@ -1,1 +1,1 @@
-# Go-To-The-Movies
+Practice making a simple app with Java Spring and ThymeLeaf
