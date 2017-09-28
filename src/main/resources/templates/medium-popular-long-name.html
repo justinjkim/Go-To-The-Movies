@@ -9,11 +9,15 @@
 <body>
 <a th:href="'/'">Home</a>
 <a th:href="'/now-playing'">Now Playing</a>
-<h1>This is our most popular movie right now.</h1>
+<h1>Popular movies</h1>
 
-<div th:each="movie : ${movies}">
+<h3>These movies have an average between 4 and 7...their titles are also at least 10 characters long. </h3>
+
+<div class="container">
+<div th:each="movie : ${movies}" class="movie">
     <img width="150px" src="http://www.google.com" th:src="'http://image.tmdb.org/t/p/original' + ${movie.posterPath}"/>
-    <span th:text="${movie.title}"></span>
+    <span th:text="${movie.title}" class="float"></span>
+</div>
 </div>
 
 
