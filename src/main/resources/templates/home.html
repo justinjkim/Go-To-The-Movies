@@ -2,11 +2,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>Home</title>
 </head>
 <body>
-<a href="now-playing.html" th:href="'/now-playing'">Now Playing</a>
-<a th:href="'/medium-popular-long-name'">Popular Movies</a>
-<h1>This is our home page.</h1>
+
+<h1>Welcome to The Movie Database</h1>
+
+<p>
+    This is a simple app demonstrating the usage of an external API and converting the JSON back to Java objects for our usage. Please click on the links below to see it in action.
+</p>
+
+<p>
+    <a href="now-playing.html" th:href="'/now-playing'">Now Playing in Theatres</a>
+</p>
+
+<p>
+    <a th:href="'/medium-popular-long-name'">Popular Movies</a>
+</p>
+
+
 </body>
 </html>
